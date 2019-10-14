@@ -1,0 +1,66 @@
+﻿<md-content layout="column" flex ng-app="usersDashboard" flex class="admin-content layout-column flex" ng-controller="userDashboardController" style="height: 100%; padding-top: 20px;" ng-cloak>
+    <div class="container body-content">
+        <ul class="nav nav-tabs" style="border: none;">
+            <li class="active"><a data-toggle="tab" href="#annotation_tab">Annotation</a></li>
+            <li><a data-toggle="tab" href="#communication_tab">Communication <i class="fa fa-star" ng-show="openedCommunications"></i></a></li>
+        </ul>
+
+        <div class="tab-content" style="border: 1px solid #ddd; padding: 20px;">
+            <div id="annotation_tab" class="tab-pane fade in active">
+                <div class="panel-group">
+                    <div class="panel panel-default panel-margin-bottom">
+                        <div class="panel-heading">Files list</div>
+                        <div class="panel-body">
+                            <files-list></files-list>
+                        </div>
+                    </div>
+                    <div class="panel panel-default panel-margin-bottom">
+                        <div class="panel-heading">Annotation Items</div>
+                        <div class="panel-body">
+                            <annotation-items-list></annotation-items-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="communication_tab" class="tab-pane fade">
+                <div class="panel-group">
+                    <div class="panel panel-default panel-margin-bottom">
+                        <div class="panel-heading">Access requests</div>
+                        <div class="panel-body">
+                            <access-requests-list></access-requests-list>
+                        </div>
+                    </div>
+                    @if (ViewBag.isUsersAcceptanceNeed == true)
+                    {
+                        <div class="panel panel-default panel-margin-bottom">
+                            <div class="panel-heading">User acceptance requests</div>
+                            <div class="panel-body">
+                                <unaccepted-users-list></unaccepted-users-list>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</md-content>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/admin/angular")
+    @Scripts.Render("~/bundles/users-dashboard")
+    <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+}
+
+@section styles
+{
+    @*@Styles.Render("~/Content/temp/css")*@
+    @Styles.Render("~/bundles/users-dashboard/css")
+    <link rel="stylesheet" ; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+    
+    <style type="text/css">
+        .md-dialog-is-showing {
+            padding-bottom: 0;
+        }
+    </style>
+}
