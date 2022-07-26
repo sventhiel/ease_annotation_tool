@@ -137,3 +137,7 @@ Parameter name: virtualPath
    at System.Web.Mvc.AreaRegistration.RegisterAllAreas()
    at CAFE.Web.MvcApplication.Application_Start() in A:\AFolder\Afolder3\CAFE\CAFE\CAFE.Web\Global.asax.cs:line 43
 
+[7/20/2022 11:28:56 PM ]: System.InvalidOperationException: The Entity Framework provider type 'System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer' registered in the application config file for the ADO.NET provider with invariant name 'System.Data.SqlClient' could not be loaded. Make sure that the assembly-qualified name is used and that the assembly is available to the running application. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information.
+   at CAFE.DAL.Migrations.CafeMigrator.Migrate() in C:\Projects\github\sventhiel\ease_annotation_tool\CAFE\CAFE.DAL\Migrations\CafeMigrator.cs:line 27
+   at CAFE.Web.MvcApplication.Application_Start() in C:\Projects\github\sventhiel\ease_annotation_tool\CAFE\CAFE.Web\Global.asax.cs:line 52
+
